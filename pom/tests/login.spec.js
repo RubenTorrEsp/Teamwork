@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 const { LoginPage } = require('../pages/loginPage');
+const { HomePage } = require('../pages/homePage');
 
 test('Validate successful login', async ({ page }) => {
   
@@ -8,8 +9,8 @@ test('Validate successful login', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.submitLogin('ruben.mte@gmail.com','Teamwork1234');
 
-    await page.getByRole('button', { name: 'Ruben Torrejon' }).click();
-    await page.getByRole('link', { name: 'View profile' }).click();
+    const homePage = new HomePage(page);
+    await homePage.enterOnProfile();
 
     const user = await page.getByText('Ruben Torrejon').textContent();
     expect(user).toBe('Ruben Torrejon')
