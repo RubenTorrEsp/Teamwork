@@ -8,9 +8,9 @@ exports.HomePage = class HomePage {
    */
   constructor(page) {
     this.page = page;
-    this.userProfile = page.getByRole('button', { name: 'Ruben Torrejon' });
-    this.profileLink = page.getByRole('link', { name: 'View profile' });
-
+    this.userProfile = page.getByRole('button', { name: 'Ruben Torrejon' })
+    this.profileLink = page.getByRole('link', { name: 'View profile' })
+    this.profileName = page.locator("//div[@class='v-list-item-title !text-body-1 font-semibold !text-default']")
   }
 
   async enterOnProfile(user, pass) {
@@ -23,6 +23,11 @@ exports.HomePage = class HomePage {
     await page.frameLocator('iframe').getByRole('link', { name: 'Project A' }).click();
     await page.frameLocator('iframe').getByRole('button', { name: 'plus icon Add Task List' }).click();
     await page.frameLocator('iframe').getByPlaceholder('e.g. New feature research').fill('Main task list');
+  }
+
+  async checkUserName(name){
+    await this.userProfile.click();
+    await expect(this.profileName).toContainText(name);
   }
 
 }

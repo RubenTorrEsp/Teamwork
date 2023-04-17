@@ -12,16 +12,15 @@ exports.LoginPage = class LoginPage {
     this.userName = page.getByLabel('Email address');
     this.password = page.getByLabel('Password');
     this.loginButton = page.getByRole('button', { name: 'Log in' })
-    this.linkProf = page.getByRole('link', { name: 'professionals' });
-
+    this.linkProf = page.getByRole('link', { name: 'professionals' })
   }
 
   async submitLogin(user, pass) {
-    await this.loginLink.click();
-    await this.userName.fill(user);
-    await this.password.fill(pass);
-    await this.loginButton.click();
-    await this.linkProf.click();
+    await this.loginLink.click()
+    await this.userName.fill(user)
+    await this.password.fill(pass)
+    await this.loginButton.click()
+    await this.linkProf.click()
   }
 
 }
