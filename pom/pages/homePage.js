@@ -17,11 +17,6 @@ exports.HomePage = class HomePage {
     this.addTaskList = page.frameLocator('iframe').getByRole('button', { name: 'Add Task List' })
   }
 
-  async enterOnProfile(user, pass) {
-    await this.userProfile.click();
-    await this.profileLink.click();
-  }
-
   async createTaskList(taskListName) {
     await page.getByRole('tab', { name: 'My projects' }).click();
     await page.frameLocator('iframe').getByRole('link', { name: 'Project A' }).click();
