@@ -4,15 +4,17 @@ const { HomePage } = require('../pages/homePage');
 import { URLS, CREDENTIALS } from '../data/Constants';
 
 test('Validate successful login', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const homePage = new HomePage(page);
 
-    await page.goto(URLS.HOME);
-    
-    await loginPage.submitLogin(CREDENTIALS.USER,CREDENTIALS.PASS);
-    await homePage.enterOnProfile();
+  await page.goto(URLS.HOME);
 
-    const user = await this.prueba.textContent();
-    expect(user).toBe('Ruben Torrejon')
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByLabel('Email address').fill(CREDENTIALS.USER);
+  await page.getByLabel('Password').fill(CREDENTIALS.PASS);
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByRole('link', { name: 'professionals' }).click();
+  await page.getByRole('button', { name: 'Ruben Torrejon' }).click();
 
-  });
+  await expect(page.locator("//div[@class='v-list-item-title !text-body-1 font-semibold !text-default']")).toContainText('Ruben Torrejon');
+  
+
+});

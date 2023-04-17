@@ -14,7 +14,6 @@ exports.LoginPage = class LoginPage {
     this.loginButton = page.getByRole('button', { name: 'Log in' })
     this.linkProf = page.getByRole('link', { name: 'professionals' });
 
-    this.prueba = page.locator("xpath=/html/body/div[4]/div/div/div/a[1]")
   }
 
   async submitLogin(user, pass) {
