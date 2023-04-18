@@ -19,7 +19,7 @@ exports.TasksPage = class TasksPage {
     this.taskName = page.frameLocator('iframe').getByPlaceholder('What needs to be done?');
     this.createTask = page.frameLocator('iframe').getByRole('button', { name: 'Create Task' });
 
-    this.completeTaskIcon = page.locator("//*[@id='task_28187099_tipped_count_1681765483618']/span")
+    this.completeTaskIcon = page.locator("//button[@class='w-task-row__check w-task-row__subtask-align tipped-delegate show-on-mouseenter w-task-row__check--complete tpd-delegation-uid-5']")
   }
 
 
