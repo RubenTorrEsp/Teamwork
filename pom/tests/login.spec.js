@@ -1,7 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+import { URLS, CREDENTIALS } from '../data/Constants';
 const { LoginPage } = require('../pages/loginPage');
 const { HomePage } = require('../pages/homePage');
-import { URLS, CREDENTIALS } from '../data/Constants';
 
 test('Validate successful login', async ({ page }) => {
   const expectedUserName = 'Ruben Torrejon';
