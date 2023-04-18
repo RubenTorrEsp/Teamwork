@@ -16,7 +16,7 @@ test('Create a task', async ({ page }) => {
 });
 
 
-test('Create a task and complete it', async ({ page }) => {
+test('Complete a task', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const tasksPage = new TasksPage(page);
   const taskListName = 'Task List 2'
