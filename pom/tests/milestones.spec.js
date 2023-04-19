@@ -2,7 +2,6 @@ import { test } from '@playwright/test';
 import { URLS, CREDENTIALS } from '../data/Constants';
 const { LoginPage } = require('../pages/loginPage');
 
-/*
 test('Create a milestone', async ({ page }) => {
     
     const loginPage = new LoginPage(page);
@@ -14,7 +13,8 @@ test('Create a milestone', async ({ page }) => {
     await page.frameLocator('iframe').getByRole('link', { name: 'Project A' }).click();
 
 
-    await page.locator("//li[@class='milestones-tab']//a").click();
+    await page.getByRole('tab', { name: 'More...' }).click();
+    await page.getByRole('link', { name: 'Milestones' }).click();
     
 
     await page.frameLocator('iframe').getByRole('button', { name: 'Add Milestone' }).click();
@@ -22,4 +22,3 @@ test('Create a milestone', async ({ page }) => {
     await page.frameLocator('iframe').locator('#addMilestoneForm').getByRole('button', { name: 'Add Milestone' }).click();
   
 });
-*/

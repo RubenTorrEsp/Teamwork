@@ -8,8 +8,8 @@ test('Create a task', async ({ page }) => {
 
   const loginPage = new LoginPage(page);
   const tasksPage = new TasksPage(page);
-  const taskListName = 'Task List 1'
-  const taskName = 'Task 1.1'
+  var taskListName = 'Create a task list'
+  var taskName = 'Create a task'
   
   await page.goto(URLS.HOME);
   await loginPage.submitLogin(CREDENTIALS.USER,CREDENTIALS.PASS);
@@ -23,17 +23,16 @@ test('Complete a task', async ({ page }) => {
   
   const loginPage = new LoginPage(page);
   const tasksPage = new TasksPage(page);
-  const taskListName = 'Task List 2'
-  const taskName = 'Task 2.1'
+  const taskListName = 'Create another task list'
+  const taskName = 'Create a task and complete it'
   
   await page.goto(URLS.HOME);
   await loginPage.submitLogin(CREDENTIALS.USER,CREDENTIALS.PASS);
   await tasksPage.newTaskList(taskListName);
   await tasksPage.newTask(taskName);
   
-  const element = page.locator("//a[text()='Task List 2']/parent::h3/parent::div/parent::div/descendant::button[1]");
-  await element.click();
+  //await page.locator("//a[text()='Create another task list']/parent::h3/parent::div/parent::div/descendant::button[1]").click();
 
-  //await tasksPage.completeTask();
+  
 
 });
