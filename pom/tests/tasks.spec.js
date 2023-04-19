@@ -33,6 +33,4 @@ test('Complete a task', async ({ page }) => {
   
   //await page.locator("//a[text()='Create another task list']/parent::h3/parent::div/parent::div/descendant::button[1]").click();
 
-  
-
 });
