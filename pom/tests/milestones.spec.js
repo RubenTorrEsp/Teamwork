@@ -12,10 +12,8 @@ test('Create a milestone', async ({ page }) => {
     await page.getByRole('tab', { name: 'My projects' }).click();
     await page.frameLocator('iframe').getByRole('link', { name: 'Project A' }).click();
 
-
     await page.getByRole('tab', { name: 'More...' }).click();
     await page.getByRole('link', { name: 'Milestones' }).click();
-    
 
     await page.frameLocator('iframe').getByRole('button', { name: 'Add Milestone' }).click();
     await page.frameLocator('iframe').getByPlaceholder('Give this milestone a name').fill('My first milestone');
